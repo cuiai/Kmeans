@@ -19,7 +19,7 @@ print(a)
 for i in range(a.size(0)):   # 将一个类别中的值来代替其他值
     for j in range(a.size(1)):
         data = a[i][j][:][:].tolist()
-        result = model.fit(data)
+        model.fit(data)
         # 分类中心点坐标
         # centers = model.cluster_centers_
         # 预测结果
@@ -37,7 +37,7 @@ for i in range(a.size(0)):   # 将一个类别中的值来代替其他值
         # print(i)
         # print(end1 - start)
         print(b)
-        attention_scores = torch.mm(b[i][j][:][:], c[i][j].transpose(-1, -2))
+        attention_scores = torch.mm(b[i][j][:][:], c[i][j][:][:].transpose(-1, -2))
         attention_scores = torch.softmax(attention_scores, dim=-1)
         print(attention_scores)
         for n in range(len(listResult)):
